@@ -1,8 +1,10 @@
-require("dotenv").config();
-const express = require("express");
-const connectDB = require("./config/db");
+import connectDB from "./config/db.js";
+import express from "express";
+import dotenv from "dotenv";
 
 const app = express();
+
+dotenv.config();
 
 /**
  * Récupère le port de l'application depuis le fichier .env - Par défaut 3000
