@@ -1,5 +1,7 @@
 require("dotenv").config();
 const express = require("express");
+const connectDB = require("./config/db");
+
 const app = express();
 
 /**
@@ -7,12 +9,7 @@ const app = express();
  */
 const PORT = process.env.PORT || 3000;
 
-const mongoose = require("mongoose");
-
-mongoose
-    .connect("mongodb://admin:secret@localhost:27017/")
-    .then(() => console.log("MongoDB connecté avec Docker Compose 🚀"))
-    .catch((err) => console.error("Erreur de connexion", err));
+connectDB();
 
 // Route de base
 app.get("/", (req, res) => {
