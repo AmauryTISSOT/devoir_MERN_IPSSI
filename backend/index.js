@@ -1,7 +1,11 @@
+require("dotenv").config();
 const express = require("express");
 const app = express();
 
-const PORT = 3000;
+/**
+ * Récupère le port de l'application depuis le fichier .env - Par défaut 3000
+ */
+const PORT = process.env.PORT || 3000;
 
 // Route de base
 app.get("/", (req, res) => {
